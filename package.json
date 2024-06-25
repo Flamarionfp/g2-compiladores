@@ -1,0 +1,25 @@
+{
+  "name": "galvao-bueno-language",
+  "version": "1.0.0",
+  "description": "Galvão Bueno Programming Language",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev src/index.ts",
+    "start": "cd dist && node index.js",
+    "build": "tsup src --out-dir dist"
+  },
+  "keywords": [],
+  "author": "Eduardo Meurer e Flamarion Fagundes",
+  "license": "ISC",
+  "dependencies": {
+    "moo": "^0.5.2"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "ts-node-dev": "^1.1.8",
+    "tsup": "8.0.2"
+  }
+}
