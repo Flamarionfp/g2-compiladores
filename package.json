@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
+    "@types/moo": "^0.5.9",
+    "@types/node": "^20.14.9",
     "ts-node-dev": "^1.1.8",
     "tsup": "8.0.2"
   }

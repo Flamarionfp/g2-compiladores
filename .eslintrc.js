@@ -5,6 +5,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-var-requires': 'off',
     'no-useless-constructor': 'off',
+    'no-eval': 'off',
     'prettier/prettier': [
       'error',
       {
