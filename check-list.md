@@ -1,3 +1,12 @@
+- Criar código de exemplo que aborde:
+
+Funções
+Estruturas de controle condicionais
+Estruturas de controle de repetição
+Operações matemáticas
+
+com relação ao Galvão (nomes de varíaveis ou logs)
+
 - Criar CLI (Compilar ou Executar baseado em caminho digitado pelo usuário + flag -c ou -e)
 
 - Mapear:
