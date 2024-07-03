@@ -1,47 +1,62 @@
+import { OptionalType, RequiredType, optionalTypes } from './types';
+
 export class Translator {
-  public generateJavascript(tokens: moo.Token[]) {
+  public generateJavascript = (tokens: moo.Token[]) => {
     let code = '';
 
-    const mapper: Record<string, (token: moo.Token) => string> = {
+    const mapper: Record<RequiredType, (token: moo.Token) => string> = {
       loopWhile: this.generateLoop,
+      consoleLog: this.generateConsoleLog,
       boolean: this.generateBoolean,
     };
 
     tokens.forEach((token) => {
+      const parsedRequiredType = token.type as RequiredType;
+      const parsedOptionalType = token.type as OptionalType;
+
       try {
-        const parsedType = token.type ?? '';
-        code += mapper[parsedType](token);
+        code += mapper[parsedRequiredType](token);
       } catch (error) {
-        code += this.generateDefault(token);
+        code += this.generateDefault({
+          type: parsedOptionalType,
+          value: token.value,
+        });
       }
     });
 
     return code;
-  }
+  };
 
-  private generateLoop({ type }: moo.Token) {
-    if (type === 'loopWhile') return 'while ';
+  private generateLoop = ({ type }: moo.Token) => {
+    return this.montarTraducao('loopWhile', { t: 'while', f: 'for' }, type);
+  };
 
-    return 'for';
-  }
+  private generateBoolean = ({ value }: moo.Token) => {
+    return this.montarTraducao('verdadeiro', { t: 'true', f: 'false' }, value);
+  };
 
-  private generateBoolean({ value }: moo.Token) {
-    if (value === 'verdadeiro') return 'true';
+  private generateConsoleLog = ({ type = '' }: moo.Token) => {
+    return this.montarTraducao('consoleLog', { t: 'console.log', f: '' }, type);
+  };
 
-    return 'false';
-  }
+  private montarTraducao = (
+    val: string,
+    tradObj: { t: string; f: string },
+    vr?: string,
+  ) => {
+    if (vr === val) return tradObj.t;
 
-  private generateDefault({ type = '', value }: moo.Token) {
-    const defaultTypes = [
-      'leftParentheses',
-      'rightParentheses',
-      'leftBracket',
-      'rightBracket',
-      'whitespace',
-      'comment',
-    ];
+    return tradObj.f;
+  };
 
-    if (defaultTypes.includes(type)) {
+  private generateDefault({
+    type,
+    value,
+  }: {
+    type: OptionalType;
+    value: string;
+  }) {
+    if (optionalTypes.includes(type)) {
       return value;
     }
 
