@@ -15,18 +15,14 @@ class Main {
       const tokenizer = new Tokenizer();
       const translator = new Translator();
       const argsCLI = new ArgsCLI();
-
       const filePath = new FilePath(argsCLI.typedFilePath);
+
       const code = await sourceReader.readFile(filePath);
       const tokens = tokenizer.tokenize(code);
       const translatedCode = translator.generateJavascript(tokens);
 
       if (argsCLI.operation === 'translate') {
-        const filename = filePath.extractFilename(
-          argsCLI.typedFilePath,
-          Main.FILE_EXTENSION,
-        );
-
+        const filename = filePath.extractFilename(Main.FILE_EXTENSION);
         FileCreator.createJavascriptFile(filename, translatedCode);
       } else {
         CodeRunner.runJavascriptCode(translatedCode);

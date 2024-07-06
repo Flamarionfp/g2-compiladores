@@ -4,8 +4,10 @@ import { InvalidFileException } from './exceptions/invalid-file';
 
 export class FilePath {
   private _value: string;
+  private _originalValue: string;
 
   constructor(value: string) {
+    this._originalValue = value;
     this.isValidOrThrows(value);
 
     this._value = this.normalizePath(value);
@@ -45,8 +47,8 @@ export class FilePath {
     }
   };
 
-  public extractFilename(value: string, separator: string) {
-    const [name] = value.split(separator);
+  public extractFilename(separator: string) {
+    const [name] = this._originalValue.split(separator);
 
     return name.replace(/[^\w\s-]/gi, '');
   }
