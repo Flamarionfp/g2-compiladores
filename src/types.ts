@@ -26,3 +26,5 @@ export type RulesRecord = Record<
   OptionalType | RequiredType,
   RegExp | string | string[] | { match: RegExp; lineBreaks: true }
 >;
+
+export type Operation = 'translate' | 'execute';

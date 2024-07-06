@@ -26,10 +26,26 @@ Galvão Bueno Language (GBL): Traduzida para JavaScript para execução eficient
 
 A Galvão Bueno Language (GBL) é uma linguagem de programação projetada com base na energia característica de Galvão Bueno. Seu código escrito em GBL é traduzido para `JavaScript`, permitindo a execução eficiente em qualquer ambiente compatível com JavaScript.
 
-Confira as regras sintáticas da linguagem:
+#### Como traduzir / executar:
 
-#### Estruturas condicionais
+<b>Gerar o build do interpretador:</b>
 
-Use `pode isso arnaldo?` para especificar um bloco de código a ser executado caso a condição específicada seja verdadeira
+`npm run build`
 
-Continuação (em andamento...)
+<b>Comando base: </b>
+
+`npm run galvao`: Executa o tradutor / interpretador
+
+<b>Flags: </b>
+
+`-t`: Traduz o código de origem para javascript, gerando um arquivo final <b>.js</b>
+
+`-e`: Executa diretamente, sem gerar um arquivo final
+
+Exemplo:
+
+`npm run galvao -- ../index.galvao.txt -t` (Tradução)
+
+`npm run galvao -- ../index.galvao.txt -e` (Execução)
+
+Para executar no modo desenvolvimento basta substituir `npm run galvao` por `npm run dev`

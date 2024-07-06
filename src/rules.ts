@@ -4,6 +4,7 @@ export const rules: RulesRecord = {
   consoleLog: /olhaOqueEleFez/,
   loopWhile: /laVemElesDeNovo/,
   number: /[0-9]+/,
+  // number: { match: /[0-9]+/, value: (state) => Number(state) },
   boolean: /verdadeiro|falso/,
   arithmeticOperators: ['+', '-', '*', '/', '%', '**'],
   incrementDecrementOperators: ['++', '--'],

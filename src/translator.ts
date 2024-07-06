@@ -28,18 +28,26 @@ export class Translator {
   };
 
   private generateLoop = ({ type }: moo.Token) => {
-    return this.montarTraducao('loopWhile', { t: 'while', f: 'for' }, type);
+    return this.buildTranslation('loopWhile', { t: 'while', f: 'for' }, type);
   };
 
   private generateBoolean = ({ value }: moo.Token) => {
-    return this.montarTraducao('verdadeiro', { t: 'true', f: 'false' }, value);
+    return this.buildTranslation(
+      'verdadeiro',
+      { t: 'true', f: 'false' },
+      value,
+    );
   };
 
   private generateConsoleLog = ({ type = '' }: moo.Token) => {
-    return this.montarTraducao('consoleLog', { t: 'console.log', f: '' }, type);
+    return this.buildTranslation(
+      'consoleLog',
+      { t: 'console.log', f: '' },
+      type,
+    );
   };
 
-  private montarTraducao = (
+  private buildTranslation = (
     val: string,
     tradObj: { t: string; f: string },
     vr?: string,
