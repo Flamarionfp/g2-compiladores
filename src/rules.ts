@@ -1,8 +1,22 @@
 import { RulesRecord } from './types';
 
 export const rules: RulesRecord = {
-  consoleLog: /olhaOqueEleFez/,
-  loopWhile: /laVemElesDeNovo/,
+  startProgram: /\bbem amigos da rede globo/,
+  consoleLog: /\bolha o que ele fez/,
+  keywordWhile: /\bla vem eles de novo/,
+  keywordBreak: /\bcala boca galvao/,
+  keywordFor: /\bvirou passeio/,
+  keywordIf: /\bpode isso Arnaldo/,
+  keywordElseIf: /\bvai ganhar ou vai perder/,
+  keywordElse: /\bperdeu/,
+  keywordFunction: /\bfez ali uma graça/,
+  keywordReturn: /\be tetraaaaaa/,
+  keywordTry: /\bsai que e sua tafarel/,
+  keywordCatch: /\bhaaaaaja coraçao/,
+  keywordFinally: /\bfim de papo/,
+  keywordVar: /\be o nome dele/,
+  keywordConst: /\be pentaaa/,
+  keywordThrow: /\bolha o lançamentooo/,
   number: /[0-9]+/,
   // number: { match: /[0-9]+/, value: (state) => Number(state) },
   boolean: /verdadeiro|falso/,
@@ -19,6 +33,12 @@ export const rules: RulesRecord = {
   rightBracket: '}',
   comment: /\/\/.*?$/,
   stringChar: /".*"/,
-  whitespace: { match: /\s+/, lineBreaks: true },
-  // TODO: add other rules here
+  whitespace: {
+    match: /\s+/,
+    lineBreaks: true,
+  },
+  identifier: {
+    match: /[a-zA-Z0-9]+/,
+  },
+  endProgram: /\beeee amigos acabou/,
 };

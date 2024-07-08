@@ -5,21 +5,24 @@ import { CodeRunner } from './code-runner';
 import { ArgsCLI } from './args-cli';
 import { FileCreator } from './file-creator';
 import { FilePath } from './file-path';
+import { PreValidator } from './pre-validator';
 
 class Main {
-  private static FILE_EXTENSION = '.galvao.txt';
+  private static FILE_EXTENSION = '.galvao';
 
   execute = async () => {
     try {
       const sourceReader = new SourceReader();
       const tokenizer = new Tokenizer();
-      const translator = new Translator();
       const argsCLI = new ArgsCLI();
       const filePath = new FilePath(argsCLI.typedFilePath);
 
-      const code = await sourceReader.readFile(filePath);
+      let code = await sourceReader.readFile(filePath);
+      code = PreValidator.execute(code);
+
       const tokens = tokenizer.tokenize(code);
-      const translatedCode = translator.generateJavascript(tokens);
+      const translator = new Translator(tokens);
+      const translatedCode = translator.generateJavascript();
 
       if (argsCLI.operation === 'translate') {
         const filename = filePath.extractFilename(Main.FILE_EXTENSION);

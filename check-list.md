@@ -35,7 +35,7 @@ while - lá vem eles de novo
 
 do
 
-break
+break - cala boca galvão
 
 continue
 

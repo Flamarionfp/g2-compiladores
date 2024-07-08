@@ -6,6 +6,15 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'no-useless-constructor': 'off',
     'no-eval': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
     'prettier/prettier': [
       'error',
       {

@@ -24,7 +24,7 @@ export class FilePath {
       );
     }
 
-    if (!value.endsWith('.galvao.txt')) {
+    if (!value.endsWith('.galvao')) {
       throw new InvalidFileException('Extensão de arquivo inválida');
     }
 

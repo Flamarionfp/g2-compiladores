@@ -1,3 +1,0 @@
-laVemElesDeNovo(1 === 1) {
-    olhaOqueEleFez("Gooool da Alemanha!")
-}
