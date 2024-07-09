@@ -44,8 +44,8 @@ A Galvão Bueno Language (GBL) é uma linguagem de programação projetada com b
 
 Exemplo:
 
-`npm run galvao -- ../index.galvao.txt -t` (Tradução)
+`npm run galvao -- ../exemplo.galvao.txt -t` (Tradução)
 
-`npm run galvao -- ../index.galvao.txt -e` (Execução)
+`npm run galvao -- ../exemplo.galvao.txt -e` (Execução)
 
-Para executar no modo desenvolvimento basta substituir `npm run galvao` por `npm run dev`
+Para executar no modo desenvolvimento basta substituir `npm run galvao` por `npm run dev` e alterar o caminho do arquivo (pois em produção o diretório raiz é baseado na dist)
