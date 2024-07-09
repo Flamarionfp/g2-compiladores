@@ -21,25 +21,29 @@ export class Translator {
       (token: moo.Token, index: number) => string
     > = {
       keywordWhile: this.generateLoop,
+      keywordFor: this.generateLoop,
       consoleLog: this.generateConsoleLog,
       boolean: this.generateBoolean,
+      keywordIf: () => 'if',
+      keywordElseIf: () => 'else if',
+      keywordElse: () => 'else',
+      keywordBreak: () => 'break',
+      keywordThrow: () => 'throw',
+      keywordTry: () => 'try',
+      keywordCatch: () => 'catch',
+      keywordFinally: () => 'finally',
+      keywordReturn: () => 'return',
+      keywordConst: (_, index) => this.generateKeywordConst(index),
       keywordVar: (_, index) => this.generateKeywordVar(index),
       keywordFunction: (_, index) => this.generateKeywordFunction(index),
-      keywordIf: () => '',
-      keywordElse: () => '',
-      keywordElseIf: () => '',
-      keywordBreak: () => '',
-      keywordConst: () => '',
-      keywordThrow: () => '',
-      keywordTry: () => '',
-      keywordCatch: () => '',
-      keywordFinally: () => '',
-      keywordFor: () => '',
-      keywordReturn: () => '',
     };
 
     const tokensWithoutIdentifier = this.tokens.filter(({ type = '' }) => {
-      const allowedRuleTokens = ['keywordVar', 'keywordFunction'];
+      const allowedRuleTokens = [
+        'keywordVar',
+        'keywordConst',
+        'keywordFunction',
+      ];
 
       return allowedRuleTokens.includes(type);
     });
@@ -113,6 +117,10 @@ export class Translator {
 
   private generateKeywordVar = (index: number) => {
     return `var ${this.findIdentifierToken(index).token.value}`;
+  };
+
+  private generateKeywordConst = (index: number) => {
+    return `const ${this.findIdentifierToken(index).token.value}`;
   };
 
   private generateKeywordFunction = (index: number) => {

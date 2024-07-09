@@ -31,14 +31,14 @@ export const rules: RulesRecord = {
   rightParentheses: ')',
   leftBracket: '{',
   rightBracket: '}',
-  comment: /\/\/.*?$/,
+  comment: /^\/\/.*/,
   stringChar: /".*"/,
   whitespace: {
     match: /\s+/,
     lineBreaks: true,
   },
   identifier: {
-    match: /[a-zA-Z0-9]+/,
+    match: /\b[a-zA-Z0-9_]\w*\b/,
   },
   endProgram: /\beeee amigos acabou/,
 };

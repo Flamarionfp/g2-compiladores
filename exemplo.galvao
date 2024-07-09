@@ -1,0 +1,21 @@
+bem amigos da rede globo
+
+golsDaAlemanha e o nome dele = 0
+totalGolsAlemanha e pentaaa = 7 // Declaracao de constante
+
+muller fez ali uma graça() {
+    la vem eles de novo(golsDaAlemanha < totalGolsAlemanha) {
+        olha o que ele fez((golsDaAlemanha + 1) + " Goooooool, é da Alemanhã amigos!")
+        
+        golsDaAlemanha = golsDaAlemanha + 1 
+
+        pode isso Arnaldo(golsDaAlemanha === totalGolsAlemanha) {
+            olha o que ele fez("Virou passeioooooo!!")
+            cala boca galvao
+        }
+    }
+}
+
+muller()
+
+eeee amigos acabou
