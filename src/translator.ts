@@ -20,6 +20,7 @@ export class Translator {
       RequiredType,
       (token: moo.Token, index: number) => string
     > = {
+      comment: this.generateComment,
       keywordWhile: this.generateLoop,
       keywordFor: this.generateLoop,
       consoleLog: this.generateConsoleLog,
@@ -77,6 +78,10 @@ export class Translator {
 
     return code;
   }
+
+  private generateComment = ({ value }: moo.Token) => {
+    return `${value.replace('#', '//')}`;
+  };
 
   private generateLoop = ({ type }: moo.Token) => {
     return this.buildTranslation(

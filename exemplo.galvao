@@ -1,7 +1,7 @@
 bem amigos da rede globo
 
 golsDaAlemanha e o nome dele = 0
-totalGolsAlemanha e pentaaa = 7 // Declaracao de constante
+totalGolsAlemanha e pentaaa = 7 # Declaração de constante
 
 muller fez ali uma graça() {
     la vem eles de novo(golsDaAlemanha < totalGolsAlemanha) {

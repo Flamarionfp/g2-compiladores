@@ -5,7 +5,6 @@ export const optionalTypes = [
   'rightParentheses',
   'leftBracket',
   'rightBracket',
-  'comment',
   'whitespace',
   'stringChar',
   'arithmeticOperators',
@@ -20,6 +19,7 @@ export const optionalTypes = [
 ] as const;
 
 const requiredTypes = [
+  'comment',
   'consoleLog',
   'keywordVar',
   'keywordConst',
