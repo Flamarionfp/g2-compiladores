@@ -11,8 +11,6 @@ export class Tokenizer {
     const tokens = [];
 
     while ((token = lexer.next()) !== undefined) {
-      // console.log('DEBUG token', token);
-
       tokens.push(token);
     }
 
