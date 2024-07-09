@@ -18,7 +18,6 @@ export const rules: RulesRecord = {
   keywordConst: /\be pentaaa/,
   keywordThrow: /\bolha o lançamentooo/,
   number: /[0-9]+/,
-  // number: { match: /[0-9]+/, value: (state) => Number(state) },
   boolean: /verdadeiro|falso/,
   arithmeticOperators: ['+', '-', '*', '/', '%', '**'],
   incrementDecrementOperators: ['++', '--'],
